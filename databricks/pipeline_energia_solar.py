@@ -33,6 +33,9 @@ def tabela(nome: str) -> str:
 # MAGIC Os arquivos originais ficam no Volume `raw` (camada de pouso). A Bronze guarda os dados como vieram da fonte, com três exceções documentadas:
 # MAGIC colunas pessoais do titular (nome, CPF/CNPJ e CEP) são descartadas por minimização de dados (LGPD), colunas que a ANEEL descontinuou e vêm sempre nulas são removidas,
 # MAGIC e a primeira linha das respostas da API SIDRA (cabeçalho descritivo) é filtrada.
+# MAGIC
+# MAGIC A API de Localidades do IBGE (`servicodados.ibge.gov.br`) não responde a conexões vindas da nuvem do Databricks (timeout), enquanto a API SIDRA funciona.
+# MAGIC Para esse caso, o notebook usa uma cópia idêntica do arquivo, versionada em `databricks/espelho/` no repositório do projeto.
 
 # COMMAND ----------
 
@@ -58,15 +61,24 @@ FONTES = {
     "ibge_municipios": ("https://servicodados.ibge.gov.br/api/v1/localidades/municipios?view=nivelado", "json"),
 }
 COLUNAS_PESSOAIS = ["NumCPFCNPJ", "NomTitularEmpreendimento", "CodCEP"]
+ESPELHOS = {"ibge_municipios": "https://raw.githubusercontent.com/andhuangg/gs-energia-solar/main/databricks/espelho/ibge_municipios.json"}
 
 
 def baixar(nome: str, url: str, extensao: str) -> str:
     destino = f"{RAW}/{nome}.{extensao}"
-    if not os.path.exists(destino):
-        resposta = requests.get(url, timeout=600)
+    if os.path.exists(destino):
+        return destino
+    try:
+        resposta = requests.get(url, timeout=(20, 600))
         resposta.raise_for_status()
-        with open(destino, "wb") as arquivo:
-            arquivo.write(resposta.content)
+    except requests.RequestException as erro:
+        if nome not in ESPELHOS:
+            raise
+        print(f"{nome}: fonte original indisponível ({type(erro).__name__}), usando espelho do repositório")
+        resposta = requests.get(ESPELHOS[nome], timeout=(20, 600))
+        resposta.raise_for_status()
+    with open(destino, "wb") as arquivo:
+        arquivo.write(resposta.content)
     return destino
 
 
