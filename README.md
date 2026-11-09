@@ -245,11 +245,31 @@ O notebook [`databricks/pipeline_energia_solar.py`](databricks/pipeline_energia_
 | Armazenar e consultar | `saveAsTable` e `CREATE OR REPLACE TABLE` em Delta Lake no Unity Catalog, consultas `%sql` |
 | Processamento distribuído | plano físico com `explain(mode="formatted")` |
 
-<!-- SPARK_RESULTADOS -->
+**Resultado da execução no Databricks Free Edition** (compute serverless com Photon, 09/11/2026):
+
+| Etapa | Resultado no Databricks | Pipeline local |
+|---|---|---|
+| Bronze | 8 tabelas Delta, `bronze_aneel_gd` com 4.735.908 linhas | 4.735.908 |
+| Silver | `silver_instalacoes_solares` com 4.734.997 linhas, 54.609,1 MW | 4.734.997, 54.609,1 MW |
+| Integração INPE | 5.552 exatos, 7 por exceção, 10 aproximados (Levenshtein) | 5.552 / 7 / 10 (difflib) |
+| Gold | `gold_municipios` 5.570 linhas, `gold_ufs` 27 linhas, período estável até maio/2026 | igual |
+| Qualidade | 0 duplicados, 0 instalações sem município (`assert`) | igual |
+
+A API de Localidades do IBGE (`servicodados.ibge.gov.br`) não respondeu a conexões vindas da nuvem do Databricks (timeout), enquanto a API SIDRA do mesmo IBGE funcionou. O notebook trata isso usando uma cópia idêntica do arquivo versionada em [`databricks/espelho/`](databricks/espelho), e registra no log quando o espelho é usado.
+
+![Bronze no Databricks](docs/img/10_databricks_bronze.png)
+
+![Conferência com o pipeline local](docs/img/11_databricks_conferencia.png)
+
+![Consulta Spark SQL por região](docs/img/12_databricks_sql_regioes.png)
+
+![Plano físico com Photon](docs/img/13_databricks_explain.png)
+
+![Tabelas Delta no Unity Catalog](docs/img/14_databricks_catalogo.png)
 
 **Discussão.**
 
-- **Características:** a mesma lógica foi escrita de forma declarativa e o otimizador do Spark decidiu a execução. O plano físico mostra o filtro `SigTipoGeracao = 'UFV'` empurrado para a leitura do arquivo (`PushedFilters`), a leitura de apenas 3 das 29 colunas (`ReadSchema`, column pruning) e a agregação em duas fases: soma parcial em cada partição (`partial_sum`), troca de dados por `cod_municipio` (`Exchange hashpartitioning`) e soma final. Esse padrão é o que permite dividir o trabalho entre várias máquinas.
+- **Características:** a mesma lógica foi escrita de forma declarativa e o otimizador do Spark decidiu a execução. No Databricks, o plano físico mostra o motor vetorizado Photon (`PhotonScan`, `PhotonGroupingAgg`), o filtro `SigTipoGeracao = 'UFV'` aplicado já na leitura da tabela Delta (`DictionaryFilters`) e a leitura de apenas 3 das 29 colunas (column pruning). No Spark local, o mesmo código gera a agregação em duas fases: soma parcial em cada partição (`partial_sum`), troca de dados por município (`Exchange hashpartitioning`) e soma final. Esse padrão é o que permite dividir o trabalho entre várias máquinas.
 - **Possibilidades:** com a base histórica mensal da ANEEL (uma foto por mês desde 2018, centenas de milhões de linhas) ou com dados de medição horária das distribuidoras, o volume deixa de caber em uma máquina. O mesmo código roda em um cluster maior sem alterações. As tabelas Delta ficam disponíveis para SQL e dashboards sem exportar arquivos.
 - **Limitações:** para 4,7 milhões de linhas, o DuckDB local é mais rápido de iterar (segundos, sem tempo de inicialização de cluster). A Free Edition tem cotas de computação, o modo ANSI do SQL exige `try_cast` e `nullif` para não quebrar com dados sujos, e a junção aproximada de nomes, trivial em Python com `difflib`, precisou ser reescrita com `levenshtein` e janela.
 

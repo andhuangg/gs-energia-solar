@@ -423,8 +423,8 @@ assert linha.instalacoes_sem_municipio == 0
 
 # MAGIC %md
 # MAGIC ## Como o Spark executa: plano físico
-# MAGIC O `explain` mostra o filtro `SigTipoGeracao = 'UFV'` empurrado para a leitura da tabela Delta (predicate pushdown), a leitura só das colunas usadas (column pruning)
-# MAGIC e a agregação em duas fases (parcial em cada partição, depois final após o shuffle por `cod_municipio`).
+# MAGIC O `explain` mostra o filtro `SigTipoGeracao = 'UFV'` aplicado na leitura da tabela Delta (predicate pushdown) e a leitura só das 3 colunas usadas (column pruning).
+# MAGIC No serverless, a execução é feita pelo Photon, o motor vetorizado do Databricks (`PhotonScan`, `PhotonGroupingAgg`).
 
 # COMMAND ----------
 
