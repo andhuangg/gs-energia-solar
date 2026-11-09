@@ -25,6 +25,7 @@ a { color: #1c5cab; text-decoration: none; }
 .capa .sub { font-size: 14pt; color: #52514e; margin-bottom: 28pt; }
 .capa .dados { font-size: 11pt; line-height: 1.8; }
 .quebra { break-before: page; }
+.referencias ~ p { text-align: left; margin: 0 0 8pt; font-size: 9.5pt; word-break: break-word; }
 """
 
 CAPA = """<div class="capa">
@@ -43,9 +44,13 @@ def html_de(arquivo: str) -> str:
 
 
 def main(repo: str = "https://github.com/andhuangg/gs-energia-solar") -> None:
-    readme = html_de("README.md")
+    texto = (RAIZ / "README.md").read_text()
+    corpo_readme, _, referencias = texto.partition("\n## Referências")
+    readme = markdown.markdown(corpo_readme, extensions=["tables", "fenced_code", "toc"])
+    referencias_html = markdown.markdown("## Referências" + referencias, extensions=["tables"]) if referencias else ""
     readme = re.sub(r"^<h1.*?</h1>\s*<p><strong>.*?</strong></p>\s*", "", readme, count=1, flags=re.S)
-    corpo = CAPA.format(repo=repo) + readme + '<div class="quebra"></div>' + html_de("relatorio-executivo.md")
+    corpo = (CAPA.format(repo=repo) + readme + '<div class="quebra"></div>' + html_de("relatorio-executivo.md")
+             + '<div class="quebra referencias"></div>' + referencias_html)
     pagina = RAIZ / "entrega.html"
     pagina.write_text(f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><base href="file://{RAIZ}/"><style>{CSS}</style></head><body>{corpo}</body></html>')
     saida = RAIZ / "entrega.pdf"

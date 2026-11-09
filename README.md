@@ -326,3 +326,43 @@ docs/                dashboard, diagrama de arquitetura, figuras e resultados.js
 data/                camadas raw, bronze, silver e gold (geradas pelo pipeline, fora do Git)
 relatorio-executivo.md
 ```
+
+## Referências
+
+AGÊNCIA NACIONAL DE ENERGIA ELÉTRICA (ANEEL). **Relação de empreendimentos de geração distribuída**. Brasília: ANEEL, 2026. Conjunto de dados abertos. Disponível em: https://dadosabertos.aneel.gov.br/dataset/relacao-de-empreendimentos-de-geracao-distribuida. Acesso em: 9 nov. 2026.
+
+AGÊNCIA NACIONAL DE ENERGIA ELÉTRICA (ANEEL). **Resolução Normativa nº 1.000, de 7 de dezembro de 2021**. Estabelece as Regras de Prestação do Serviço Público de Distribuição de Energia Elétrica. Brasília: ANEEL, 2021. Disponível em: https://www2.aneel.gov.br/cedoc/ren20211000.html. Acesso em: 9 nov. 2026.
+
+AGÊNCIA NACIONAL DE ENERGIA ELÉTRICA (ANEEL). **Tarifas homologadas das distribuidoras de energia elétrica**. Brasília: ANEEL, 2026. Conjunto de dados abertos. Disponível em: https://dadosabertos.aneel.gov.br/dataset/tarifas-distribuidoras-energia-eletrica. Acesso em: 9 nov. 2026.
+
+ARMBRUST, M. *et al*. Delta Lake: high-performance ACID table storage over cloud object stores. **Proceedings of the VLDB Endowment**, v. 13, n. 12, p. 3411-3424, 2020. DOI: https://doi.org/10.14778/3415478.3415560.
+
+BRASIL. **Lei nº 13.709, de 14 de agosto de 2018**. Lei Geral de Proteção de Dados Pessoais (LGPD). Brasília, DF: Presidência da República, 2018. Disponível em: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm. Acesso em: 9 nov. 2026.
+
+BRASIL. **Lei nº 14.300, de 6 de janeiro de 2022**. Institui o marco legal da microgeração e minigeração distribuída e o Sistema de Compensação de Energia Elétrica. Brasília, DF: Presidência da República, 2022. Disponível em: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14300.htm. Acesso em: 9 nov. 2026.
+
+BREIMAN, L. Random forests. **Machine Learning**, v. 45, n. 1, p. 5-32, 2001. DOI: https://doi.org/10.1023/A:1010933404324.
+
+DATABRICKS. **Lineage in Unity Catalog**. Databricks Documentation, 2026. Disponível em: https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-lineage. Acesso em: 9 nov. 2026.
+
+DATABRICKS. **What is the medallion lakehouse architecture?** Databricks Documentation, 2026. Disponível em: https://docs.databricks.com/aws/en/lakehouse/medallion. Acesso em: 9 nov. 2026.
+
+FRIEDMAN, J. H. Greedy function approximation: a gradient boosting machine. **The Annals of Statistics**, v. 29, n. 5, p. 1189-1232, 2001. DOI: https://doi.org/10.1214/aos/1013203451.
+
+INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA (IBGE). **API de Localidades**. Rio de Janeiro: IBGE, 2026. Disponível em: https://servicodados.ibge.gov.br/api/docs/localidades. Acesso em: 9 nov. 2026.
+
+INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA (IBGE). **Censo Demográfico 2022**: tabelas 4712, 4714 e 6326. Sistema IBGE de Recuperação Automática (SIDRA). Rio de Janeiro: IBGE, 2026. Disponível em: https://sidra.ibge.gov.br/tabela/4714. Acesso em: 9 nov. 2026.
+
+INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA (IBGE). **Produto Interno Bruto dos Municípios 2023**: tabela 5938. Sistema IBGE de Recuperação Automática (SIDRA). Rio de Janeiro: IBGE, 2026. Disponível em: https://sidra.ibge.gov.br/tabela/5938. Acesso em: 9 nov. 2026.
+
+PEDREGOSA, F. *et al*. Scikit-learn: machine learning in Python. **Journal of Machine Learning Research**, v. 12, p. 2825-2830, 2011. Disponível em: https://jmlr.org/papers/v12/pedregosa11a.html. Acesso em: 9 nov. 2026.
+
+PEREIRA, E. B. *et al*. **Atlas brasileiro de energia solar**. 2. ed. São José dos Campos: INPE, 2017. DOI: https://doi.org/10.34024/978851700089. Dados disponíveis em: https://labren.ccst.inpe.br/atlas_2017.html. Acesso em: 9 nov. 2026.
+
+RAASVELDT, M.; MÜHLEISEN, H. DuckDB: an embeddable analytical database. *In*: INTERNATIONAL CONFERENCE ON MANAGEMENT OF DATA (SIGMOD), 2019, Amsterdam. **Proceedings** [...]. New York: ACM, 2019. p. 1981-1984. DOI: https://doi.org/10.1145/3299869.3320212.
+
+ROUSSEEUW, P. J. Silhouettes: a graphical aid to the interpretation and validation of cluster analysis. **Journal of Computational and Applied Mathematics**, v. 20, p. 53-65, 1987. DOI: https://doi.org/10.1016/0377-0427(87)90125-7.
+
+SPEARMAN, C. The proof and measurement of association between two things. **The American Journal of Psychology**, v. 15, n. 1, p. 72-101, 1904. DOI: https://doi.org/10.2307/1412159.
+
+ZAHARIA, M. *et al*. Apache Spark: a unified engine for big data processing. **Communications of the ACM**, v. 59, n. 11, p. 56-65, 2016. DOI: https://doi.org/10.1145/2934664.
