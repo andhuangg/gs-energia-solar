@@ -19,6 +19,8 @@ Pipeline de Big Data & Analytics que cruza 4,7 milhões de instalações solares
 | Experimentação Spark | [`databricks/`](databricks) e [seção 9](#9-experimentação-com-databricks-e-apache-spark) |
 | Relatório executivo | [`relatorio-executivo.md`](relatorio-executivo.md) |
 
+> **Indo além do enunciado.** Como contribuição adicional, que não fazia parte dos entregáveis pedidos, o projeto também traz uma camada de **governança de dados no Unity Catalog**: dicionário de dados no próprio banco, tags de classificação e linhagem automática das tabelas. Veja a [seção 11](#11-indo-além-do-enunciado-governança-e-linhagem-de-dados).
+
 ## 1. Investigação do problema
 
 **Problema.** A micro e minigeração distribuída solar (painéis em telhados, fazendas solares de autoconsumo remoto) é a fonte de energia que mais cresce no Brasil: passou de 0,4 GW conectados em 2018 para 54,6 GW em 2026. O consumidor que instala painéis reduz a conta de luz por décadas. A pergunta é **quem está capturando esse benefício**. Se a adoção depende de renda e não do potencial solar, a transição energética amplia desigualdades: regiões e famílias de menor renda continuam pagando tarifas cheias enquanto subsidiam, via tarifa, a rede usada por quem já gera a própria energia.
@@ -284,11 +286,42 @@ A API de Localidades do IBGE (`servicodados.ibge.gov.br`) não respondeu a conex
 
 Diagnóstico e recomendações em [`relatorio-executivo.md`](relatorio-executivo.md).
 
+## 11. Indo além do enunciado: governança e linhagem de dados
+
+> Esta seção é uma **contribuição adicional**, feita além do escopo pedido na atividade. Ela não altera nenhum dado, código ou resultado das seções anteriores: apenas documenta, no próprio banco, as tabelas que o pipeline já havia criado.
+
+**Por que isso importa em um banco de dados na nuvem.** Em um ambiente compartilhado, com dezenas de tabelas e várias pessoas consultando, não basta os dados existirem: é preciso saber **o que cada tabela e coluna significa**, **de onde ela veio** e **se contém dados pessoais**. Sem isso, o data lake vira um "pântano de dados" em que ninguém confia. O Unity Catalog do Databricks resolve isso guardando esses metadados junto com as tabelas.
+
+**O que foi feito** (notebook separado, [`databricks/extra_catalogo_linhagem.py`](databricks/extra_catalogo_linhagem.py)):
+
+| Recurso | Como | Resultado |
+|---|---|---|
+| Descrição das tabelas | `COMMENT ON TABLE` | As 13 tabelas descritas, aparecendo na interface e no `information_schema` |
+| Dicionário de dados no banco | `ALTER TABLE ... ALTER COLUMN ... COMMENT` | 59 colunas da Silver e da Gold documentadas, com unidade e fonte |
+| Classificação por tags | `ALTER TABLE ... SET TAGS` | Cada tabela com `camada` (bronze, silver, gold), `fonte` (ANEEL, IBGE, INPE), `lgpd = sem_dados_pessoais` e `projeto` |
+| Catálogo consultável por SQL | `information_schema.tables`, `table_tags` e `columns` | Os metadados podem ser consultados como qualquer tabela |
+| Linhagem de dados | registrada automaticamente pelo Unity Catalog | Grafo mostrando de quais tabelas Bronze vem cada Silver, de qual Silver vem cada Gold e qual notebook fez cada escrita |
+
+**Evidências.** O notebook foi executado no Databricks e exportado com as saídas: [`extra_catalogo_linhagem_executado.ipynb`](databricks/extra_catalogo_linhagem_executado.ipynb) (abre no GitHub) e [`extra_catalogo_linhagem_executado.html`](databricks/extra_catalogo_linhagem_executado.html).
+
+![Descrições no Unity Catalog](docs/img/15_extra_catalogo_descricoes.png)
+
+![Linhagem da tabela gold_municipios](docs/img/16_extra_linhagem_lista.png)
+
+![Grafo de linhagem](docs/img/17_extra_linhagem_grafo.png)
+
+No grafo, cada caixa é uma tabela Delta com a sua tag `camada`: as tabelas Bronze do IBGE, do INPE e da ANEEL alimentam `silver_municipios`, que alimenta `gold_municipios`. O e-mail do dono das tabelas foi borrado no print.
+
+**Observações.**
+
+- A tabela de sistema `system.access.table_lineage` (consulta no fim do notebook) voltou vazia nesta execução: as tabelas de sistema do Databricks são atualizadas com algumas horas de atraso. A interface do catálogo, porém, já mostrava a linhagem completa, como nos prints acima.
+- O notebook deve ser executado **depois** do pipeline principal, porque recriar as tabelas apaga os comentários e as tags.
+
 ## Estrutura do repositório
 
 ```
 pipeline/            código do pipeline local (Bronze, Silver, Gold, análises, gráficos, dashboard)
-databricks/          notebook PySpark do pipeline completo no Databricks
+databricks/          notebook PySpark do pipeline completo no Databricks e notebook extra de governança
 docs/                dashboard, diagrama de arquitetura, figuras e resultados.json
 data/                camadas raw, bronze, silver e gold (geradas pelo pipeline, fora do Git)
 relatorio-executivo.md
