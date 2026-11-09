@@ -245,6 +245,13 @@ O notebook [`databricks/pipeline_energia_solar.py`](databricks/pipeline_energia_
 | Armazenar e consultar | `saveAsTable` e `CREATE OR REPLACE TABLE` em Delta Lake no Unity Catalog, consultas `%sql` |
 | Processamento distribuído | plano físico com `explain(mode="formatted")` |
 
+**Evidência da execução.** O notebook foi exportado do Databricks **com as saídas** depois de executado:
+
+- [`databricks/pipeline_energia_solar_executado.ipynb`](databricks/pipeline_energia_solar_executado.ipynb): abre direto no GitHub, com a data, a hora e a duração de cada célula e todas as saídas (contagens, tabelas e plano físico).
+- [`databricks/pipeline_energia_solar_executado.html`](databricks/pipeline_energia_solar_executado.html): exportação HTML original do Databricks. Para ver, baixe o arquivo e abra no navegador.
+
+O caminho interno do armazenamento gerenciado (S3 do Unity Catalog), que aparece no plano físico, foi mascarado nos dois arquivos.
+
 **Resultado da execução no Databricks Free Edition** (compute serverless com Photon, 09/11/2026):
 
 | Etapa | Resultado no Databricks | Pipeline local |
