@@ -1,0 +1,63 @@
+{
+  "gd_bronze": 4735908,
+  "gd_nao_solar_removidos": 905,
+  "gd_potencia_invalida_ou_duplicado": 6,
+  "gd_silver": 4734997,
+  "gd_sem_data_conexao": 71,
+  "labren_match_exato": 5552,
+  "labren_match_manual": 7,
+  "labren_match_aproximado": 10,
+  "labren_sem_match": 2,
+  "labren_exemplos_aproximados": [
+    [
+      "Santa Terezinha",
+      "Santa Teresinha"
+    ],
+    [
+      "Barão do Monte Alto",
+      "Barão de Monte Alto"
+    ],
+    [
+      "Amparo do São Francisco",
+      "Amparo de São Francisco"
+    ],
+    [
+      "Dona Euzébia",
+      "Dona Eusébia"
+    ],
+    [
+      "Santo Antônio de Leverger",
+      "Santo Antônio do Leverger"
+    ],
+    [
+      "Florínea",
+      "Florínia"
+    ],
+    [
+      "Belém do São Francisco",
+      "Belém de São Francisco"
+    ],
+    [
+      "Lagoa de Itaenga",
+      "Lagoa do Itaenga"
+    ],
+    [
+      "Muquém do São Francisco",
+      "Muquém de São Francisco"
+    ],
+    [
+      "São Tomé das Letras",
+      "São Thomé das Letras"
+    ]
+  ],
+  "municipios_ibge": 5571,
+  "gd_sem_municipio_ibge": 0,
+  "municipios_sem_populacao": 1,
+  "municipios_sem_pib": 1,
+  "municipios_sem_irradiacao": 2,
+  "municipios_sem_tarifa": 4,
+  "tarifa_b1_min_max": [
+    0.353,
+    1.569
+  ]
+}

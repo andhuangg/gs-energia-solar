@@ -1,0 +1,16 @@
+[project]
+name = "gs-energia-solar"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pandas>=2.2",
+    "pyarrow>=17",
+    "duckdb>=1.1",
+    "scikit-learn>=1.5",
+    "scipy>=1.13",
+    "plotly>=5.24",
+    "matplotlib>=3.9",
+    "requests>=2.32",
+    "markdown>=3.7",
+    "pygments>=2.18",
+]

@@ -1,0 +1,15 @@
+{
+  "periodo_estavel_ate_exclusivo": "2026-06-01",
+  "sistemas_silver": 4734997,
+  "sistemas_gold": 4734963,
+  "sistemas_fora_da_gold": 34,
+  "potencia_confere_mw": [
+    54609.1,
+    54608.7
+  ],
+  "linhas": {
+    "municipios": 5570,
+    "serie_mensal": 28835,
+    "ufs": 27
+  }
+}

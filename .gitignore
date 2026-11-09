@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.DS_Store
+data/raw/
+data/bronze/*.parquet
+data/silver/*.parquet
+entrega.html

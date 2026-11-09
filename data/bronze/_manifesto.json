@@ -1,0 +1,90 @@
+[
+  {
+    "fonte": "aneel_gd",
+    "descricao": "ANEEL, relação de empreendimentos de micro e minigeração distribuída",
+    "url": "https://dadosabertos.aneel.gov.br/dataset/5e0fafd2-21b9-4d5b-b622-40438d40aba2/resource/cd29f6eb-e08d-4db7-b6fb-ed6e3b682d27/download/empreendimento-geracao-distribuida.parquet",
+    "sha256_origem": "c8c1be17dddf1a1342253eb5b160d624218a83f9b08ba3c469dd37bc92b9aa92",
+    "bytes_origem": 108080441,
+    "linhas": 4735908,
+    "colunas": 29,
+    "ingerido_em": "2026-11-09T20:05:41+00:00",
+    "arquivo_bronze": "data/bronze/aneel_gd.parquet"
+  },
+  {
+    "fonte": "aneel_tarifas",
+    "descricao": "ANEEL, tarifas homologadas das distribuidoras",
+    "url": "https://dadosabertos.aneel.gov.br/dataset/5a583f3e-1646-4f67-bf0f-69db4203e89e/resource/9af99ef4-376a-4493-a075-5e48ab4da51b/download/tarifas-homologadas-distribuidoras-energia-eletrica.parquet",
+    "sha256_origem": "6ddc2fb4012c9c3984a27e1db79e687cea7c79cc24f23543ada59ae41a1165b6",
+    "bytes_origem": 2580327,
+    "linhas": 657709,
+    "colunas": 20,
+    "ingerido_em": "2026-11-09T20:05:41+00:00",
+    "arquivo_bronze": "data/bronze/aneel_tarifas.parquet"
+  },
+  {
+    "fonte": "labren_irradiacao",
+    "descricao": "INPE/LABREN, Atlas Brasileiro de Energia Solar 2017, irradiação no plano inclinado por sede municipal",
+    "url": "https://labren.ccst.inpe.br/projetos/atlas_2017/TILTED_LATITUDE_sedes-munic_%28csv%29.zip",
+    "sha256_origem": "f26c4eff89797e93a4980f5d618be891097a1adbb341e8cd74e3f627bd0dfb5e",
+    "bytes_origem": 606600,
+    "linhas": 5569,
+    "colunas": 22,
+    "ingerido_em": "2026-11-09T20:05:41+00:00",
+    "arquivo_bronze": "data/bronze/labren_irradiacao.parquet"
+  },
+  {
+    "fonte": "ibge_populacao",
+    "descricao": "IBGE Censo 2022, população residente e área (tabela 4714)",
+    "url": "https://apisidra.ibge.gov.br/values/t/4714/n6/all/v/93,6318/p/2022",
+    "sha256_origem": "a69dc34bab0288757160ef63ea7dd3c6463ef9ebb6da44ab59c4da655612e135",
+    "bytes_origem": 3041872,
+    "linhas": 11140,
+    "colunas": 14,
+    "ingerido_em": "2026-11-09T20:05:41+00:00",
+    "arquivo_bronze": "data/bronze/ibge_populacao.parquet"
+  },
+  {
+    "fonte": "ibge_domicilios",
+    "descricao": "IBGE Censo 2022, domicílios particulares permanentes ocupados (tabela 4712)",
+    "url": "https://apisidra.ibge.gov.br/values/t/4712/n6/all/v/381/p/2022",
+    "sha256_origem": "c1eff5cdfe5cc99eb19d16ebb1218aed98ce5fce6dedc390f0398363d54015f0",
+    "bytes_origem": 1617202,
+    "linhas": 5570,
+    "colunas": 14,
+    "ingerido_em": "2026-11-09T20:05:41+00:00",
+    "arquivo_bronze": "data/bronze/ibge_domicilios.parquet"
+  },
+  {
+    "fonte": "ibge_apartamentos",
+    "descricao": "IBGE Censo 2022, percentual de domicílios do tipo apartamento (tabela 6326)",
+    "url": "https://apisidra.ibge.gov.br/values/t/6326/n6/all/v/1000381/p/2022/c125/3247",
+    "sha256_origem": "89aebe1f521b46c3111b9e6c0c8e208b5c3968614782e0d244922daea895b5a6",
+    "bytes_origem": 2032307,
+    "linhas": 5570,
+    "colunas": 16,
+    "ingerido_em": "2026-11-09T20:05:41+00:00",
+    "arquivo_bronze": "data/bronze/ibge_apartamentos.parquet"
+  },
+  {
+    "fonte": "ibge_pib",
+    "descricao": "IBGE PIB dos Municípios 2023 (tabela 5938)",
+    "url": "https://apisidra.ibge.gov.br/values/t/5938/n6/all/v/37/p/2023",
+    "sha256_origem": "dd75c4088abdb4ac6055a34723379cf55fd2a681320032bd43ce9b915fb27230",
+    "bytes_origem": 1577853,
+    "linhas": 5570,
+    "colunas": 14,
+    "ingerido_em": "2026-11-09T20:05:41+00:00",
+    "arquivo_bronze": "data/bronze/ibge_pib.parquet"
+  },
+  {
+    "fonte": "ibge_municipios",
+    "descricao": "IBGE API de Localidades, municípios com UF e regiões",
+    "url": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios?view=nivelado",
+    "sha256_origem": "77bf68d9f5b1237522bcd28c39b8857725ebb25e913a5b13aa4a740ce67041b4",
+    "bytes_origem": 2372050,
+    "linhas": 5571,
+    "colunas": 19,
+    "ingerido_em": "2026-11-09T20:05:41+00:00",
+    "arquivo_bronze": "data/bronze/ibge_municipios.parquet"
+  }
+]

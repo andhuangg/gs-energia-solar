@@ -1,0 +1,380 @@
+{
+  "correlacoes": [
+    {
+      "fator": "pib_per_capita",
+      "indicador": "watts_por_habitante",
+      "spearman": 0.59,
+      "p_valor": 0.0
+    },
+    {
+      "fator": "pib_per_capita",
+      "indicador": "telhados_solares_por_mil_dom",
+      "spearman": 0.517,
+      "p_valor": 0.0
+    },
+    {
+      "fator": "pct_apartamentos",
+      "indicador": "watts_por_habitante",
+      "spearman": 0.144,
+      "p_valor": 2.789660216260319e-27
+    },
+    {
+      "fator": "pct_apartamentos",
+      "indicador": "telhados_solares_por_mil_dom",
+      "spearman": 0.148,
+      "p_valor": 1.7386432289201108e-28
+    },
+    {
+      "fator": "irradiacao_kwh_m2_dia",
+      "indicador": "watts_por_habitante",
+      "spearman": -0.073,
+      "p_valor": 5.273780668754809e-08
+    },
+    {
+      "fator": "irradiacao_kwh_m2_dia",
+      "indicador": "telhados_solares_por_mil_dom",
+      "spearman": -0.022,
+      "p_valor": 0.10016002925632413
+    },
+    {
+      "fator": "tarifa_b1_r_kwh",
+      "indicador": "watts_por_habitante",
+      "spearman": 0.067,
+      "p_valor": 5.630292799720297e-07
+    },
+    {
+      "fator": "tarifa_b1_r_kwh",
+      "indicador": "telhados_solares_por_mil_dom",
+      "spearman": 0.146,
+      "p_valor": 8.075244280526861e-28
+    },
+    {
+      "fator": "economia_r_por_kwp_ano",
+      "indicador": "watts_por_habitante",
+      "spearman": 0.003,
+      "p_valor": 0.8460314074461437
+    },
+    {
+      "fator": "economia_r_por_kwp_ano",
+      "indicador": "telhados_solares_por_mil_dom",
+      "spearman": 0.117,
+      "p_valor": 2.058646963240082e-18
+    },
+    {
+      "fator": "pct_kw_rural",
+      "indicador": "watts_por_habitante",
+      "spearman": 0.379,
+      "p_valor": 2.581496546640291e-189
+    },
+    {
+      "fator": "pct_kw_rural",
+      "indicador": "telhados_solares_por_mil_dom",
+      "spearman": 0.155,
+      "p_valor": 3.5068893332005735e-31
+    },
+    {
+      "fator": "populacao",
+      "indicador": "watts_por_habitante",
+      "spearman": -0.166,
+      "p_valor": 9.358111128964474e-36
+    },
+    {
+      "fator": "populacao",
+      "indicador": "telhados_solares_por_mil_dom",
+      "spearman": -0.026,
+      "p_valor": 0.0540097256171179
+    }
+  ],
+  "regioes": [
+    {
+      "regiao": "Centro-Oeste",
+      "pct_populacao": 8.02,
+      "pct_potencia": 15.75,
+      "irradiacao_media": 5.34,
+      "watts_por_habitante": 528.01,
+      "pib_per_capita": 71200.72
+    },
+    {
+      "regiao": "Nordeste",
+      "pct_populacao": 26.93,
+      "pct_potencia": 20.64,
+      "irradiacao_media": 5.45,
+      "watts_por_habitante": 206.25,
+      "pib_per_capita": 27677.99
+    },
+    {
+      "regiao": "Norte",
+      "pct_populacao": 8.51,
+      "pct_potencia": 7.64,
+      "irradiacao_media": 4.74,
+      "watts_por_habitante": 241.65,
+      "pib_per_capita": 36802.94
+    },
+    {
+      "regiao": "Sudeste",
+      "pct_populacao": 41.8,
+      "pct_potencia": 31.91,
+      "irradiacao_media": 4.99,
+      "watts_por_habitante": 205.36,
+      "pib_per_capita": 68357.91
+    },
+    {
+      "regiao": "Sul",
+      "pct_populacao": 14.75,
+      "pct_potencia": 24.06,
+      "irradiacao_media": 4.66,
+      "watts_por_habitante": 438.82,
+      "pib_per_capita": 61274.54
+    }
+  ],
+  "evolucao_anual": [
+    {
+      "ano": 2009,
+      "sistemas": 22.0,
+      "potencia_mw": 0.2
+    },
+    {
+      "ano": 2010,
+      "sistemas": 5.0,
+      "potencia_mw": 0.1
+    },
+    {
+      "ano": 2011,
+      "sistemas": 38.0,
+      "potencia_mw": 0.3
+    },
+    {
+      "ano": 2012,
+      "sistemas": 32.0,
+      "potencia_mw": 0.2
+    },
+    {
+      "ano": 2013,
+      "sistemas": 71.0,
+      "potencia_mw": 0.6
+    },
+    {
+      "ano": 2014,
+      "sistemas": 253.0,
+      "potencia_mw": 3.4
+    },
+    {
+      "ano": 2015,
+      "sistemas": 1209.0,
+      "potencia_mw": 11.9
+    },
+    {
+      "ano": 2016,
+      "sistemas": 6097.0,
+      "potencia_mw": 59.7
+    },
+    {
+      "ano": 2017,
+      "sistemas": 12918.0,
+      "potencia_mw": 146.3
+    },
+    {
+      "ano": 2018,
+      "sistemas": 34819.0,
+      "potencia_mw": 434.3
+    },
+    {
+      "ano": 2019,
+      "sistemas": 119531.0,
+      "potencia_mw": 1670.5
+    },
+    {
+      "ano": 2020,
+      "sistemas": 220592.0,
+      "potencia_mw": 3374.7
+    },
+    {
+      "ano": 2021,
+      "sistemas": 447524.0,
+      "potencia_mw": 5559.6
+    },
+    {
+      "ano": 2022,
+      "sistemas": 809119.0,
+      "potencia_mw": 8872.2
+    },
+    {
+      "ano": 2023,
+      "sistemas": 695810.0,
+      "potencia_mw": 8756.9
+    },
+    {
+      "ano": 2024,
+      "sistemas": 915402.0,
+      "potencia_mw": 10613.2
+    },
+    {
+      "ano": 2025,
+      "sistemas": 912930.0,
+      "potencia_mw": 9755.4
+    },
+    {
+      "ano": 2026,
+      "sistemas": 412384.0,
+      "potencia_mw": 3981.9
+    }
+  ],
+  "modelo": {
+    "metricas": {
+      "baseline_media": {
+        "kfold": {
+          "r2": -0.0,
+          "mae_log": 0.72,
+          "mae_telhados_por_mil_dom": 27.2
+        },
+        "validacao_por_uf": {
+          "r2": -0.031,
+          "mae_log": 0.731,
+          "mae_telhados_por_mil_dom": 27.6
+        }
+      },
+      "regressao_linear": {
+        "kfold": {
+          "r2": 0.283,
+          "mae_log": 0.602,
+          "mae_telhados_por_mil_dom": 24.5
+        },
+        "validacao_por_uf": {
+          "r2": 0.233,
+          "mae_log": 0.624,
+          "mae_telhados_por_mil_dom": 25.5
+        }
+      },
+      "gradient_boosting": {
+        "kfold": {
+          "r2": 0.621,
+          "mae_log": 0.421,
+          "mae_telhados_por_mil_dom": 16.8
+        },
+        "validacao_por_uf": {
+          "r2": -0.019,
+          "mae_log": 0.723,
+          "mae_telhados_por_mil_dom": 30.0
+        }
+      }
+    },
+    "importancia_permutacao": [
+      {
+        "fator": "PIB per capita (log)",
+        "queda_r2": 0.49
+      },
+      {
+        "fator": "Tarifa residencial",
+        "queda_r2": 0.488
+      },
+      {
+        "fator": "Irradiação solar",
+        "queda_r2": 0.363
+      },
+      {
+        "fator": "Densidade demográfica (log)",
+        "queda_r2": 0.132
+      },
+      {
+        "fator": "% de apartamentos",
+        "queda_r2": 0.032
+      },
+      {
+        "fator": "População (log)",
+        "queda_r2": 0.026
+      }
+    ],
+    "kwp_mediano_residencial": 5.0,
+    "telhados_faltantes_brasil": 373313,
+    "economia_nao_capturada_bilhoes_r_ano": 2.25,
+    "faltantes_por_regiao": {
+      "Centro-Oeste": 48854,
+      "Nordeste": 75375,
+      "Norte": 13200,
+      "Sudeste": 161634,
+      "Sul": 74250
+    }
+  },
+  "clusters": {
+    "silhuetas": {
+      "3": 0.196,
+      "4": 0.195,
+      "5": 0.198,
+      "6": 0.175,
+      "7": 0.177
+    },
+    "k": 5,
+    "perfil": [
+      {
+        "cluster": 0,
+        "municipios": 1473,
+        "populacao_mi": 63.7,
+        "watts_por_habitante": 534.1,
+        "pib_per_capita": 50160.07,
+        "irradiacao": 5.22,
+        "pct_kw_rural": 14.3,
+        "pct_kw_remoto": 24.46,
+        "pct_kw_12m": 14.57,
+        "regiao_principal": "Sudeste",
+        "pct_nordeste": 6.9,
+        "perfil": "Consolidados de alta renda"
+      },
+      {
+        "cluster": 1,
+        "municipios": 1190,
+        "populacao_mi": 10.1,
+        "watts_por_habitante": 473.24,
+        "pib_per_capita": 41487.35,
+        "irradiacao": 4.95,
+        "pct_kw_rural": 44.36,
+        "pct_kw_remoto": 27.6,
+        "pct_kw_12m": 13.51,
+        "regiao_principal": "Sul",
+        "pct_nordeste": 1.7,
+        "perfil": "Agro solar"
+      },
+      {
+        "cluster": 2,
+        "municipios": 294,
+        "populacao_mi": 4.8,
+        "watts_por_habitante": 257.78,
+        "pib_per_capita": 21701.47,
+        "irradiacao": 5.31,
+        "pct_kw_rural": 10.3,
+        "pct_kw_remoto": 28.33,
+        "pct_kw_12m": 54.53,
+        "regiao_principal": "Nordeste",
+        "pct_nordeste": 47.6,
+        "perfil": "Expansão recente"
+      },
+      {
+        "cluster": 3,
+        "municipios": 1676,
+        "populacao_mi": 48.4,
+        "watts_por_habitante": 141.32,
+        "pib_per_capita": 15221.62,
+        "irradiacao": 5.48,
+        "pct_kw_rural": 8.48,
+        "pct_kw_remoto": 51.39,
+        "pct_kw_12m": 26.67,
+        "regiao_principal": "Nordeste",
+        "pct_nordeste": 87.8,
+        "perfil": "Muito sol, baixa renda"
+      },
+      {
+        "cluster": 4,
+        "municipios": 899,
+        "populacao_mi": 75.6,
+        "watts_por_habitante": 138.77,
+        "pib_per_capita": 27114.58,
+        "irradiacao": 4.8,
+        "pct_kw_rural": 8.41,
+        "pct_kw_remoto": 21.25,
+        "pct_kw_12m": 21.6,
+        "regiao_principal": "Sudeste",
+        "pct_nordeste": 5.8,
+        "perfil": "Urbanos de baixa adoção"
+      }
+    ]
+  }
+}
